@@ -13,7 +13,23 @@ const getUserNamePicByEthAddress = async (EthUserId) => {
     }
   };
 
+
+  const getTopCreators = async (limit) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/users/getTopCreators`,
+        {
+          limit: limit,
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   export {
-    getUserNamePicByEthAddress
+    getUserNamePicByEthAddress,
+    getTopCreators
   };
   

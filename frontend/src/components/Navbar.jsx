@@ -13,17 +13,6 @@ import { Toaster } from "react-hot-toast";
 function Navbar() {
   const AccountState = useSelector((state) => state.EthAccountStates);
 
-  const openCloseMenu = () => {
-    const NavLinks = document.getElementById("nav-links").classList;
-    if (NavLinks.contains("activeNavLinks")) {
-      NavLinks.add("closeNavLinks");
-      NavLinks.remove("activeNavLinks");
-    } else {
-      NavLinks.add("activeNavLinks");
-      NavLinks.remove("closeNavLinks");
-    }
-  };
-
   const connectMetamask = async () => {
     const result = await Connect();
     if (result) {
