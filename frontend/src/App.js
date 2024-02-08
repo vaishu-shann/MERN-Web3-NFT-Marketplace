@@ -6,21 +6,31 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./views/Home/Home";
 import Footer from "./components/Footer";
 import Explore from "./views/Explore/Explore";
+import ShopNFTs from "./views/Explore/Components/ShopNFTs";
+import ProtectRoute from "./components/ProtectRoute";
+import MyProfile from "./views/MyProfile/MyProfile";
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="flex justify-center items-center min-h-full max-w-full dark:bg-darkBlue-700">
+      <div className="flex justify-center items-center min-h-full max-w-full dark:bg-darkBlue-700">
         <div className="container w-full h-full">
-          <Navbar/> <ScrollToTop/>
+          <Navbar /> <ScrollToTop />
           <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/explore" element={<Explore />}/>
-
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<Explore />}>
+              <Route index element={<ShopNFTs />} />
+              <Route path="collections" />
+            </Route>
+            <Route
+              path="/myProfile"
+              element={<ProtectRoute Component={MyProfile} />}
+            >
+              </Route>
           </Routes>
-          <Footer/>
-          </div>
+          <Footer />
         </div>
+      </div>
     </BrowserRouter>
   );
 }
