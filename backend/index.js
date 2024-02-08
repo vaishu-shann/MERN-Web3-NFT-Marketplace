@@ -15,6 +15,7 @@ app.use(cors());
 app.use(errorHandler)
 app.use("/api/users",require("./routes/profile.route"));
 app.use("/api/nft",require("./routes/nft.route"));
+app.use("/api/collection",require("./routes/collection.route"));
 
 app.listen(port, () => {
     console.log(`Backend Server running ${port} 🎉`);

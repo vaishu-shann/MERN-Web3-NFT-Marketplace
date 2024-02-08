@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./views/Home/Home";
 import Footer from "./components/Footer";
+import Explore from "./views/Explore/Explore";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Navbar/> <ScrollToTop/>
           <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Explore />}/>
+
           </Routes>
           <Footer/>
           </div>

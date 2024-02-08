@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NftPlaceholder from "../../assets/images/nft_placeholder.svg";
-import { getUserNamePicByEthAddress } from "../../apis/profile.apis";
+import { getUserNamePicByEthAddress } from "../../api/profile.apis";
 
 export function ProductCollection({ item, key, link, width }) {
   const [CollectionCreatorAvatar, setCollectionCreatorAvatar] = useState({});
