@@ -4,7 +4,7 @@ const  Collection  = require("../models/collectionModel");
 
 
 const getCollections = asyncHandler(async (req, res) => {
-    console.log("getCollections" , req.body)
+    // console.log("getCollections" , req.body)
     const { search, category, limit } = req.body;
     try {
       const result = await Collection.find({
@@ -20,4 +20,19 @@ const getCollections = asyncHandler(async (req, res) => {
   });
 
 
-  module.exports={getCollections}
+  
+const getCollectionsByUser = async (req, res) => {
+  console.log("getCollectionsByUser" , req.body)
+
+  const { EthUser } = req.body;
+  try {
+    const result = await Collection.find({
+      EthUser: EthUser,
+    });
+    res.send(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  module.exports={getCollections,getCollectionsByUser}

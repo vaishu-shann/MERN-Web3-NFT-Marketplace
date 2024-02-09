@@ -27,6 +27,7 @@ function App() {
               element={<ProtectRoute Component={MyProfile} />}
             >
                <Route path="addNFT" />
+               <Route path="myCollection" />
               </Route>
           </Routes>
           <Footer />

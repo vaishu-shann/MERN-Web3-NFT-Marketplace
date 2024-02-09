@@ -13,5 +13,19 @@ const getCollections = async (search, category, limit) => {
       return response.data;
     } catch (error) {}
   };
+
+
+  const getCollectionsByUser = async (EthUser) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/getCollectionsByUser`,
+        {
+          EthUser,
+        }
+      );
+      return response.data;
+    } catch (error) {}
+  };
   
-  export {getCollections}
+  
+  export {getCollections ,getCollectionsByUser}

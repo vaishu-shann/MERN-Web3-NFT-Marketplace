@@ -30,7 +30,7 @@ function MyProfile() {
         <NavBar ClickEvent={changeCssClass} />
         <Routes>
           <Route path="/" element={<Body />}>
-        
+          <Route path="myCollection" />
           </Route>
           <Route path="/addNFT" element={<AddNewNFT />} />
         </Routes>

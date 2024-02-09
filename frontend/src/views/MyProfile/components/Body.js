@@ -3,8 +3,9 @@ import { GoArrowUpRight } from "react-icons/go";
 import row_1 from "../../../assets/images/row.png";
 import row_2 from "../../../assets/images/row_2.png";
 import row_3 from "../../../assets/images/row_3.png";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
+import MyCollections from "./MyCollection/MyCollections";
 
 function Body() {
   const [UserFavorite, setUserFavorite] = useState({});
@@ -65,7 +66,10 @@ function Body() {
             />
           </div>
         </div>
+        <Routes>
+          <Route path="myCollection" element={<MyCollections />} />
 
+        </Routes>
       </div>
       <div id="body-right" className="flex xl:w-max w-full flex-col gap-7">
         <h1 className="text-white">Space for Ad</h1>
