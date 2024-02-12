@@ -18,4 +18,26 @@ const getAllNfts = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { getAllNfts };
+
+const createNFT = asyncHandler(async (req, res) => {
+    console.log("createblog", req.body.formNftData)
+    const {  price, name,image, description,properties,royalties,approve ,category } = req.body.formNftData;
+    try{
+        if (!price || !name ) {
+            res.status(400);
+            throw new Error("Price and Title fileds are mandatory");
+        }
+        const NftDoc = await Nft.create({
+            price, name,image, description,properties,royalties,approve ,category
+        });
+        console.log("NftDoc" ,NftDoc)
+        res.status(201).json(NftDoc);
+    }catch(e){
+        console.log("error in create Blog", e)
+        res.status(500).json({ message: e })
+    }
+
+}
+)
+
+module.exports = { getAllNfts,createNFT };

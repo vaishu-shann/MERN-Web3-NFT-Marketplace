@@ -3,7 +3,7 @@ const { getCollections,getCollectionsByUser } = require("../controllers/collecti
 const router = express.Router();
 
 router.post("/getCollections", getCollections);
-routerCollection.post("/getCollectionsByUser", getCollectionsByUser);
+router.post("/getCollectionsByUser", getCollectionsByUser);
 
 
 module.exports = router;
