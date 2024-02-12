@@ -13,4 +13,16 @@ const fetchAllNFTs = async (search, category, limit) => {
   }
 };
 
-export { fetchAllNFTs };
+
+const createNFT = async(formNftData) =>{
+  try{
+    const response = await axios.post(`http://localhost:5001/api/nft/addNft`, {
+      formNftData
+    });
+    console.log("response", response.data)
+    return response.data;
+  }catch(error){
+    console.log(error);
+  }
+}
+export { fetchAllNFTs,createNFT };

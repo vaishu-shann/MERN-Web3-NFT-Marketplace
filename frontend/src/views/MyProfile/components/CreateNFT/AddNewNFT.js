@@ -5,9 +5,12 @@ import { TiUpload } from "react-icons/ti";
 import { Toaster } from "react-hot-toast";
 import { ErrorToast } from "../../../../app/Toast/Error";
 import { Link, useNavigate } from "react-router-dom";
+import { SuccessToast } from "../../../../app/Toast/Success";
+import { createNFT } from "../../../../api/nft.apis";
 
 
-function AddNewNFT() {  
+function AddNewNFT() {
+  const Navigate = useNavigate();
   const [formNftData, setFormNftData] = useState({
     price: "",
     name: "",
@@ -41,7 +44,7 @@ function AddNewNFT() {
         imageBox.style.display = "none";
         NFTPreview.style.display = "block";
         NFTPreview.src = imageDataUrl;
-        setFormNftData({ ...formNftData, image: blobImage });
+        setFormNftData({ ...formNftData, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkL6HwToRG3UlxwwW5_7GagN8N7tvxkPYZZB9CTAuFWw&s" });
       });
     }
   };
@@ -72,6 +75,35 @@ function AddNewNFT() {
     return new Blob([arrayBuffer], { type: mimeString });
   };
 
+
+
+  const HandleMintNFT = async (event) => {
+    event.preventDefault();
+    console.log("formNftData", formNftData)
+    if (!formNftData.image) {
+      return ErrorToast("Upload a NFT image !");
+    }
+    try {
+      SuccessToast(<div>
+      NFT Minting please wait... ⛓
+     
+      </div> );
+      const create_nft = await createNFT(formNftData)
+      console.log("create_nft", create_nft)
+      SuccessToast(
+        <div>
+          NFT Mint successfully 🎉 ! 
+       
+        </div>
+      );
+      setTimeout(() => {
+        Navigate("/myProfile/myNFTs");
+      }, 3000);
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   const HandleOnChange = (e) => {
     setFormNftData({
@@ -142,7 +174,7 @@ function AddNewNFT() {
           hidden
         />
         <div className="flex-1">
-          <form  className="flex flex-col gap-6">
+          <form onSubmit={HandleMintNFT} className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
               <label
                 htmlFor=""
