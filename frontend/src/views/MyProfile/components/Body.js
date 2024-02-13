@@ -6,6 +6,7 @@ import row_3 from "../../../assets/images/row_3.png";
 import { Link, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import MyCollections from "./MyCollection/MyCollections";
+import MyNFTs from "./CreateNFT/MyNFTs";
 
 function Body() {
   const [UserFavorite, setUserFavorite] = useState({});
@@ -68,7 +69,7 @@ function Body() {
         </div>
         <Routes>
           <Route path="myCollection" element={<MyCollections />} />
-
+          <Route path="myNFTs" element={<MyNFTs />} />
         </Routes>
       </div>
       <div id="body-right" className="flex xl:w-max w-full flex-col gap-7">
