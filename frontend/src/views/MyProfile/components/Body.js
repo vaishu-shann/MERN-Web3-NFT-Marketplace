@@ -7,13 +7,14 @@ import { Link, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import MyCollections from "./MyCollection/MyCollections";
 import MyNFTs from "./CreateNFT/MyNFTs";
+import RecentlyAddedCollections from "./Home/RecentlyAddedCollections";
+import TopCreators from "./Home/TopCreators";
+import TrendingNFts from "./Home/TrendingNFts";
+import EditProfile from "./Settings/EditProfile";
+import EditAvatar from "./Settings/EditAvatar";
 
 function Body() {
-  const [UserFavorite, setUserFavorite] = useState({});
-  const EthUser = useSelector((state) => state.EthAccountStates.account);
-  useEffect(() => {
 
-  }, []);
 
   return (
     <div
@@ -68,12 +69,31 @@ function Body() {
           </div>
         </div>
         <Routes>
+          <Route
+            index
+            element={
+              <>
+                <TrendingNFts />
+              </>
+            }
+          />
+
           <Route path="myCollection" element={<MyCollections />} />
           <Route path="myNFTs" element={<MyNFTs />} />
+          <Route
+            path="setting"
+            element={
+              <>
+                <EditAvatar />
+                <EditProfile />
+              </>
+            }
+          />
         </Routes>
       </div>
       <div id="body-right" className="flex xl:w-max w-full flex-col gap-7">
-        <h1 className="text-white">Space for Ad</h1>
+        <RecentlyAddedCollections />
+        <TopCreators />
       </div>
     </div>
   );

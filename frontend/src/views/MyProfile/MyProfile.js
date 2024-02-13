@@ -32,6 +32,8 @@ function MyProfile() {
           <Route path="/" element={<Body />}>
           <Route path="myCollection" />
           <Route path="myNFTs" />
+          <Route path="setting" />
+
           </Route>
           <Route path="/addNFT" element={<AddNewNFT />} />
         </Routes>

@@ -10,6 +10,7 @@ const fetchAllNFTs = async (search, category, limit) => {
     return response.data;
   } catch (error) {
     console.log(error);
+    return false
   }
 };
 
@@ -23,6 +24,8 @@ const createNFT = async(formNftData) =>{
     return response.data;
   }catch(error){
     console.log(error);
+
+    return false
   }
 }
 export { fetchAllNFTs,createNFT };

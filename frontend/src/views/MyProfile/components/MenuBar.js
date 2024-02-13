@@ -86,14 +86,7 @@ function MenuBar({ className, close }) {
                 My NFTs
               </span>
             </NavLink>
-            <NavLink to="/myProfile/myFavorites" className="relative">
-              <span className="pl-10  flex group cursor-pointer gap-2 items-center text-white/90 hover:text-pink-600 ">
-                <div className="line hidden group-hover:flex absolute left-0 h-8 w-1 rounded-r-lg bg-pink-500"></div>
-                <FaRegHeart className="Outline text-xl  transition-all group-hover:hidden text-white/50 group-hover:text-pink-600" />
-                <FaHeart className="solid text-xl  transition-all hidden group-hover:flex text-white/50 group-hover:text-pink-600" />
-                Your favorites
-              </span>
-            </NavLink>
+
             <NavLink to="/myProfile/setting" className="relative">
               <span className="pl-10 flex group cursor-pointer gap-2 items-center text-white/90 hover:text-pink-600 ">
                 <div className="line hidden group-hover:flex absolute left-0 h-8 w-1 rounded-r-lg bg-pink-500"></div>

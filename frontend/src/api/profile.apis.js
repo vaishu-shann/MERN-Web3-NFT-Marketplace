@@ -10,6 +10,7 @@ const getUserNamePicByEthAddress = async (EthUserId) => {
       return response.data;
     } catch (error) {
       console.log(error);
+      return false
     }
   };
 
@@ -25,11 +26,46 @@ const getUserNamePicByEthAddress = async (EthUserId) => {
       return response.data;
     } catch (error) {
       console.log(error);
+      return false
     }
   };
 
+
+  const setProfileDetails = async (formData, ethAddress) => {
+    const details = {
+      ...formData,
+      userEthAddress: ethAddress,
+    };
+  
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/users/addUserProfileDetails`,
+        { data: details }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUserDetailsByEthAddress = async (EthUserId) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/users/getUserDetailsByEthAddress`,
+        { EthUser: EthUserId }
+      );
+  
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
   export {
     getUserNamePicByEthAddress,
-    getTopCreators
+    getTopCreators,
+    setProfileDetails,
+    getUserDetailsByEthAddress
   };
   

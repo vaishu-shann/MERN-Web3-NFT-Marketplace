@@ -11,7 +11,10 @@ const getCollections = async (search, category, limit) => {
         }
       );
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      console.log("error in getCollections" , error);
+      return
+    }
   };
 
 
@@ -24,8 +27,23 @@ const getCollections = async (search, category, limit) => {
         }
       );
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      console.log("error in getCollectionsByUser" , error);
+      return
+    }
   };
   
+
+  const getFewCollections = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/getFewCollections`
+      );
+      return response.data;
+    } catch (error) {
+      console.log("error in getFewCollections" , error);
+      return
+    }
+  };
   
-  export {getCollections ,getCollectionsByUser}
+  export {getCollections ,getCollectionsByUser,getFewCollections}

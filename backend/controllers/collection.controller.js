@@ -22,7 +22,7 @@ const getCollections = asyncHandler(async (req, res) => {
 
   
 const getCollectionsByUser = async (req, res) => {
-  console.log("getCollectionsByUser" , req.body)
+  // console.log("getCollectionsByUser" , req.body)
 
   const { EthUser } = req.body;
   try {
@@ -35,4 +35,29 @@ const getCollectionsByUser = async (req, res) => {
   }
 };
 
-  module.exports={getCollections,getCollectionsByUser}
+
+const getFewCollections = async (req, res) => {
+  console.log("getFewCollections" , req.body)
+
+  try {
+    const result = await Collection.find(
+      {},
+      {
+        CollectionImages: {
+          one: 1,
+        },
+        CollectionTag: 1,
+        CollectionName: 1,
+        createdTime: 1,
+        EthUser: 1,
+      }
+    )
+      .sort({ createdTime: -1 })
+      .limit(4);
+    return res.send(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  module.exports={getCollections,getCollectionsByUser,getFewCollections}
