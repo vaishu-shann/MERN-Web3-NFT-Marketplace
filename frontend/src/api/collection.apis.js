@@ -45,5 +45,22 @@ const getCollections = async (search, category, limit) => {
       return
     }
   };
+
+  const createCollection = async (data) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/addCollection`,
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
-  export {getCollections ,getCollectionsByUser,getFewCollections}
+  export {getCollections ,getCollectionsByUser,getFewCollections,createCollection}

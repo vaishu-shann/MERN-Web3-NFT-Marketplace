@@ -30,6 +30,7 @@ function App() {
                <Route path="myCollection" />
                <Route path="myNFTs" />
                <Route path="setting" />
+               <Route path="addCollection" />
               </Route>
           </Routes>
           <Footer />
