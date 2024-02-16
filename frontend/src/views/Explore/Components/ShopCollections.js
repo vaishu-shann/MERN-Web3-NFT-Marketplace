@@ -52,8 +52,8 @@ function ShopCollections({ filters }) {
         className="flex relative z-10 justify-evenly flex-wrap gap-10"
       >
         {IsLoading ? (
-          CollectionsItems.length > 0 ? (
-            CollectionsItems.map((item, index) => (
+          CollectionsItems?.length > 0 ? (
+            CollectionsItems?.map((item, index) => (
               <ProductCollection
                 width="20pc"
                 link="/collection/"
@@ -70,12 +70,11 @@ function ShopCollections({ filters }) {
             </div>
           )
         ) : (
-          DummySkeletonData.map((item, index) => (
+          DummySkeletonData?.map((item, index) => (
             <SkeletonProductCollection key={index} />
           ))
         )}
       </div>
-      {/* <div className="bg-gradient-to-r from-purple-800 to-pink-600 absolute bottom-2 left-1 h-96 w-96 blur-[10pc] opacity-[30%]" /> */}
       <button
         type="button"
         onClick={loadMore}

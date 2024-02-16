@@ -57,10 +57,43 @@ const getCollections = async (search, category, limit) => {
           },
         }
       );
+      console.log("createCollection" , response.data)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getCollectionById = async (id) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/getCollectionById`,
+        {
+          id,
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  const updateCollectionById = async (data) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/updateCollectionById`,
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       console.log(error);
     }
   };
   
-  export {getCollections ,getCollectionsByUser,getFewCollections,createCollection}
+  export {getCollections ,getCollectionsByUser,getFewCollections,createCollection,getCollectionById,updateCollectionById}

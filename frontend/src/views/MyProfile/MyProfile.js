@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Body from "./components/Body";
 import AddNewNFT from "./components/CreateNFT/AddNewNFT";
 import AddNewCollection from "./components/MyCollection/AddCollection";
+import EditCollection from "./components/MyCollection/EditCollection";
 
 
 function MyProfile() {
@@ -38,6 +39,7 @@ function MyProfile() {
           </Route>
           <Route path="/addNFT" element={<AddNewNFT />} />
           <Route path="/addCollection" element={<AddNewCollection />} />
+          <Route path="/editCollection/:id" element={<EditCollection />} />
 
         </Routes>
         </div>
