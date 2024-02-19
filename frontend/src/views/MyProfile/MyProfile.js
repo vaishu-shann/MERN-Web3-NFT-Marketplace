@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import AddNewNFT from "./components/CreateNFT/AddNewNFT";
 import AddNewCollection from "./components/MyCollection/AddCollection";
 import EditCollection from "./components/MyCollection/EditCollection";
+import EditNFT from "./components/CreateNFT/EditNFT";
 
 
 function MyProfile() {
@@ -40,6 +41,7 @@ function MyProfile() {
           <Route path="/addNFT" element={<AddNewNFT />} />
           <Route path="/addCollection" element={<AddNewCollection />} />
           <Route path="/editCollection/:id" element={<EditCollection />} />
+          <Route path="/editNFT" element={<EditNFT />} />
 
         </Routes>
         </div>

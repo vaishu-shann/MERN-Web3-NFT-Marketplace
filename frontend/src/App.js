@@ -32,6 +32,8 @@ function App() {
                <Route path="setting" />
                <Route path="addCollection" />
                <Route path="editCollection/:id" />
+              <Route path="editNFT" />
+
               </Route>
           </Routes>
           <Footer />
