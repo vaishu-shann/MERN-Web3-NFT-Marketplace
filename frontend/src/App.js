@@ -9,6 +9,7 @@ import Explore from "./views/Explore/Explore";
 import ShopNFTs from "./views/Explore/Components/ShopNFTs";
 import ProtectRoute from "./components/ProtectRoute";
 import MyProfile from "./views/MyProfile/MyProfile";
+import PrivacyPolicy from "./views/Other/PrivacyPolicy";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
               <Route path="editNFT" />
 
               </Route>
+            <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+
           </Routes>
           <Footer />
         </div>
