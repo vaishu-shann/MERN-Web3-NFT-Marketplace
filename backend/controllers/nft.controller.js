@@ -6,12 +6,7 @@ const getAllNfts = asyncHandler(async (req, res) => {
     console.log("NFTsController", req.body)
     const { search, category, limit } = req.body;
     try {
-        const AllNFTs = await Nft.find({
-            title: { $regex: new RegExp(search, "i") },
-            category: {
-                $regex: new RegExp(category == "all" ? "" : category, "i"),
-            },
-        }).limit(limit);
+        const AllNFTs = await Nft.find().limit(limit);
         res.send(AllNFTs);
     } catch (error) {
         console.log(`${error} NFTsController(shop.controller.js)`);
@@ -40,4 +35,16 @@ const createNFT = asyncHandler(async (req, res) => {
 }
 )
 
-module.exports = { getAllNfts,createNFT };
+const getNftbyId = asyncHandler(async (req, res) => {
+    console.log("getNftbyId", req.params)
+    const { id } = req.params;
+    try {
+        const NFTbyId = await Nft.findById(id);
+        res.send(NFTbyId);
+    } catch (error) {
+        console.log(`${error} NFTsController(shop.controller.js)`);
+    }
+});
+
+
+module.exports = { getAllNfts,createNFT,getNftbyId };
