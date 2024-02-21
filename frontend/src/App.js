@@ -10,6 +10,7 @@ import ShopNFTs from "./views/Explore/Components/ShopNFTs";
 import ProtectRoute from "./components/ProtectRoute";
 import MyProfile from "./views/MyProfile/MyProfile";
 import PrivacyPolicy from "./views/Other/PrivacyPolicy";
+import Nft from "./views/ProductOverview/Nft";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route index element={<ShopNFTs />} />
               <Route path="collections" />
             </Route>
+            <Route path="/nft/:id" element={<Nft />} />
             <Route
               path="/myProfile"
               element={<ProtectRoute Component={MyProfile} />}
@@ -33,7 +35,7 @@ function App() {
                <Route path="setting" />
                <Route path="addCollection" />
                <Route path="editCollection/:id" />
-              <Route path="editNFT" />
+               <Route path="editNFT/:id" />
 
               </Route>
             <Route path="/privacyPolicy" element={<PrivacyPolicy />} />

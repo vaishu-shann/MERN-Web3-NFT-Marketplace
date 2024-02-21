@@ -7,6 +7,7 @@ import { getUserNamePicByEthAddress } from "../../api/profile.apis";
 import demoUserAvatar from "../../assets/images/user-demo-avatar.svg";
 
 export function ProductNFT({ data, link, button }) {
+  console.log("data" , data)
   const [NFTsCreatorDetails, setNFTsCreatorDetails] = useState({});
   useEffect(() => {
     Aos.init();
@@ -17,6 +18,7 @@ export function ProductNFT({ data, link, button }) {
       try {
         const response = await getUserNamePicByEthAddress(data.createdBy);
         setNFTsCreatorDetails(response);
+        // console.log("nft ID",response[0])
       } catch (error) {
         console.log(error);
       }
@@ -26,8 +28,8 @@ export function ProductNFT({ data, link, button }) {
 
   return (
     <Link
-      to={`${link}${data.NFTid}`}
-      key={data.NFTid}
+      to={`${link}${data._id}`}
+      key={data._id}
       className="border-[1px] m-2 border-gray-700/20 group transition-all hover:-translate-y-3 rounded-xl flex flex-col gap-2 flex-2 w-[15pc] bg-darkBlue-600 p-3"
     >
       <div className="flex gap-3 items-center">
@@ -46,8 +48,8 @@ export function ProductNFT({ data, link, button }) {
             to={`/author/${data.createdBy}`}
             className="text-white/90 rounded-md w-[9pc] h-[1.5pc] hover:text-pink-500 hover:scale-[99%] transition-all line-clamp-1 text-sm font-normal"
           >
-            {NFTsCreatorDetails.userName
-              ? NFTsCreatorDetails.userName
+            {NFTsCreatorDetails?.userName
+              ? NFTsCreatorDetails?.userName
               : data.createdBy
               ? `${data.createdBy.slice(0, 5)}...${data.createdBy.slice(38)}`
               : null}

@@ -28,4 +28,17 @@ const createNFT = async(formNftData) =>{
     return false
   }
 }
-export { fetchAllNFTs,createNFT };
+
+
+const fetchNFTById = async (id) => {
+  try {
+    const response = await axios.post(`http://localhost:5001/api/nft`, {
+     id
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return false
+  }
+};
+export { fetchAllNFTs,createNFT,fetchNFTById };

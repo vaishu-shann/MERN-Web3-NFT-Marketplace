@@ -41,7 +41,7 @@ function MyProfile() {
           <Route path="/addNFT" element={<AddNewNFT />} />
           <Route path="/addCollection" element={<AddNewCollection />} />
           <Route path="/editCollection/:id" element={<EditCollection />} />
-          <Route path="/editNFT" element={<EditNFT />} />
+          <Route path="/editNFT/:id" element={<EditNFT />} />
 
         </Routes>
         </div>

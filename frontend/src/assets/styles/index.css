@@ -253,7 +253,8 @@ nav .active {
 }
 
 .swiper-slide {
-    /* width: 100% !important; */
+    flex-shrink: inherit!important;
+    width: 100% !important;
 }
 
 .swiper {
