@@ -44,7 +44,7 @@ function AddNewNFT() {
         imageBox.style.display = "none";
         NFTPreview.style.display = "block";
         NFTPreview.src = imageDataUrl;
-        setFormNftData({ ...formNftData, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkL6HwToRG3UlxwwW5_7GagN8N7tvxkPYZZB9CTAuFWw&s" });
+        setFormNftData({ ...formNftData, image: "https://www.thestreet.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgyMDU4MTA0Mzc5MTU1Nzg0/boredape.jpg" });
       });
     }
   };
