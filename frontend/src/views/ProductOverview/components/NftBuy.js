@@ -34,10 +34,10 @@ function NftBuy({ price, nftId, ComponentLoad, isListed }) {
               },
             },
           }}
-          content={`${price} ETH`}
+          content={`1.24ETH`}
         >
           <b className="text-2xl cursor-pointer sm:text-5xl dark:text-white/90">
-            ~{Number(price).toFixed(4)} ETH
+            ~{Number("1.23").toFixed(4)} ETH
           </b>
         </Tooltip>
         <Tooltip
@@ -50,10 +50,10 @@ function NftBuy({ price, nftId, ComponentLoad, isListed }) {
               },
             },
           }}
-          content={`${usdPrice * price} $`}
+          content={`$286 $`}
         >
           <span className="dark:text-white/60 cursor-pointer text-sm sm:text-base">
-            (${Number(usdPrice * price).toFixed(1)})
+            (${Number(256).toFixed(1)})
           </span>
         </Tooltip>
       </div>
