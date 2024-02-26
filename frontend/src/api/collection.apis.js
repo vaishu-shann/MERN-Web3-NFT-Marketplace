@@ -78,6 +78,17 @@ const getCollections = async (search, category, limit) => {
     }
   };
 
+  const getCollectionsDetailsById = async (id) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/collection/getCollectionDetailsById`,
+        { id }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const updateCollectionById = async (data) => {
     try {
@@ -96,4 +107,4 @@ const getCollections = async (search, category, limit) => {
     }
   };
   
-  export {getCollections ,getCollectionsByUser,getFewCollections,createCollection,getCollectionById,updateCollectionById}
+  export {getCollections ,getCollectionsByUser,getFewCollections,createCollection,getCollectionById,updateCollectionById,getCollectionsDetailsById}

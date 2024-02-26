@@ -93,4 +93,15 @@ const getFewCollections = async (req, res) => {
   }
 };
 
-  module.exports={getCollections,getCollectionsByUser,getFewCollections,createCollection}
+
+const getCollectionDetailsById = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const result = await Collection.findById(id);
+    res.send(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  module.exports={getCollections,getCollectionsByUser,getFewCollections,createCollection,getCollectionDetailsById}

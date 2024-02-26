@@ -6,7 +6,7 @@ import {
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getCollectionById } from "../../api/collection.apis";
+import { getCollectionsDetailsById } from "../../api/collection.apis";
 import { Toaster } from "react-hot-toast";
 import Product404 from "../../components/UiComponents/Product404";
 
@@ -43,7 +43,7 @@ function Collection() {
   useEffect(() => {
     const fetching = async () => {
       try {
-        const response = await getCollectionById(id);
+        const response = await getCollectionsDetailsById(id);
         setCollectionDetails(response);
         setProgress(100);
         setIsLoading(true);
