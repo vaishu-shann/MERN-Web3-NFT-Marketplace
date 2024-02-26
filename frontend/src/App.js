@@ -11,6 +11,7 @@ import ProtectRoute from "./components/ProtectRoute";
 import MyProfile from "./views/MyProfile/MyProfile";
 import PrivacyPolicy from "./views/Other/PrivacyPolicy";
 import Nft from "./views/ProductOverview/Nft";
+import Collection from "./views/ProductOverview/Collection";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="collections" />
             </Route>
             <Route path="/nft/:id" element={<Nft />} />
+            <Route path="/collection/:id" element={<Collection />} />
             <Route
               path="/myProfile"
               element={<ProtectRoute Component={MyProfile} />}
