@@ -10,7 +10,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 function Section_2() {
-  const [TradingNFTs, setTradingNFTs] = useState([]);
+  const [TradingNFTs, setTradingNFTs] = useState([
+    {_id:"65c9dc65c22558fbf5b235b7",createdBy:"Username",userName:"Selena",title:"Space NFT", name:"Astro Space",price:"1.924"}
+  ]);
 
   useEffect(() => {
     const fetching = async () => {
@@ -21,7 +23,7 @@ function Section_2() {
         console.log(error);
       }
     };
-    fetching();
+    // fetching();
   }, []);
 
   return (

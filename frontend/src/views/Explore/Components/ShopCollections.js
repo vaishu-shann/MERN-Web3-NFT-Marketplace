@@ -9,7 +9,7 @@ import {
 
 function ShopCollections({ filters }) {
   const DummySkeletonData = [1, 2, 3, 4, 5, 6, 1, 2, 3];
-  const [CollectionsItems, setCollectionsItems] = useState([]);
+  const [CollectionsItems, setCollectionsItems] = useState([{id:"1",CollectionImages:[{one:"https://assets-global.website-files.com/62624e283b503f0ce727563e/6499aa6dbd4dbc441a7799da_649061827a478e5df442d3f2_TATUM_BLOG_NFT_4.png",two:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQZVXkUom8rdmUzPPwy35wKfl9kg-sR5I3IKcxs3yqiief6O0rK8qTq0G-JryIBAOCJfM&usqp=CAU",three:"https://media.licdn.com/dms/image/D4D12AQE8q6Iu5ctELg/article-cover_image-shrink_720_1280/0/1684654574247?e=2147483647&v=beta&t=oivHoW7qwB38RJnJK59bv6xAGUSru7edNFlbkDI2m_Y",four:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf8BpJuevk2BHePX0VcxwEHwHRrphKA6X6kIBO81o4dGcan9m4Cwz6MjYBL3XSAPjU0h0&usqp=CAU"}],CollectionName:"Astro Collection",CollectionTag:"34567899uyt"}]);
   const [IsLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(30);
   const [limit, setLimit] = useState(10);
