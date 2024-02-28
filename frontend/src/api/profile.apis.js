@@ -62,10 +62,28 @@ const getUserNamePicByEthAddress = async (EthUserId) => {
   };
 
 
+  const setProfilePhoto = async (file, user) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:5001/api/users/addUserProfilePhoto`,
+        { Image: file, EthUser: user },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   export {
     getUserNamePicByEthAddress,
     getTopCreators,
     setProfileDetails,
-    getUserDetailsByEthAddress
+    getUserDetailsByEthAddress,
+    setProfilePhoto
   };
   

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { MdAdd } from "react-icons/md";
 import { Tooltip } from "flowbite-react";
 import { IoClose } from "react-icons/io5";
 import {
+  getCollectionById,
     updateCollectionById,
 } from "../../../../api/collection.apis";
 import { useParams } from "react-router-dom";
@@ -20,7 +21,18 @@ function EditCollection() {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
  
- 
+  useEffect(() => {
+    const fetching = async () => {
+      try {
+        const response = await getCollectionById(id);
+        setUpdatedCollection(response);
+        console.log("getCollectionById",response)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetching();
+  }, [ id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,7 +135,7 @@ function EditCollection() {
         </h1>
         <span className="text-white/60">
           {updatedCollection
-            ? `${updatedCollection.CollectionName} : #${updatedCollection.CollectionTag}`
+            ? `${updatedCollection?.CollectionName} : #${updatedCollection?.CollectionTag}`
             : ""}
         </span>
         <Link

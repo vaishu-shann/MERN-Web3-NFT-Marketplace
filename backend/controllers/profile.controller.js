@@ -82,4 +82,41 @@ const getProfileByEthAddress = asyncHandler(async (req, res) => {
       console.log(error);
     }
   };
-  module.exports={getProfileByEthAddress,getTopCreators,setProfileDetails,getProfileDetailsByEthAddress}
+
+
+  const setProfilePhoto = async (req, res) => {
+    const { EthUser } = req.body;
+    console.log("EthUser" , req.body)
+    
+    const ImageLink = req.files.map((file) => `/images/${file.filename}`);
+    try {
+      const filter = { userEthAddress: EthUser };
+      const update = {
+        $set: {
+          userProfile: `${process.env.SERVER_HOST}${ImageLink[0]}`,
+          userEthAddress: EthUser,
+          createdAt: Date.now(),
+        },
+      };  
+      const options = { upsert: true };  
+      const result = await User.updateOne(filter, update, options);  
+      if (result.upserted) {
+        return res.status(200).json({
+          success: true,
+          message: "Profile avatar uploaded successfully! 🎉",
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: "Profile avatar updated successfully! 🎉",
+        });
+      }
+    } catch (error) {
+      console.error("Error in setProfilePhoto:", error);
+      return res.status(500).json({
+        success: false,
+        message: "Internal Server Error",
+      });
+    }
+  };
+  module.exports={getProfileByEthAddress,getTopCreators,setProfileDetails,getProfileDetailsByEthAddress,setProfilePhoto}

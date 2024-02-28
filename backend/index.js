@@ -5,7 +5,7 @@ const dotenv = require("dotenv").config();
 var bodyParser = require('body-parser');
 const connectDb = require("./config/dbConnection");
 const errorHandler = require("./middlewares/errorHandler");
-
+const multer = require('multer');
 connectDb()
 const app = express();
 const port =process.env.SERVER_PORT || 5000; 

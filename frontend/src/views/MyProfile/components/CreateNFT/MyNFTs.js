@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { ProductNFT } from "../../../../components/UiComponents/ProductNFT";
 import Product404 from "../../../../components/UiComponents/Product404";
+import { fetchAllNFTs } from "../../../../api/nft.apis";
 
 function MyNFTs() {
   const [rowNFTsData, setRowNFTsData] = useState([]);
   const [CreatedNFTData, setCreatedNFTData] = useState([]);
   const [OwnedNFTData, setOwnedNFTData] = useState([]);
 
+  useEffect(() => {
+    const fetching = async () => {
+      const response = await fetchAllNFTs("", "", 7);
+      setCreatedNFTData(response);
+      try {
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetching();
+  }, []);
 
   return (
     <div className="flex flex-col">

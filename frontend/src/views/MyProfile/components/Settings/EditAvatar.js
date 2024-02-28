@@ -5,13 +5,25 @@ import { ErrorToast } from "../../../../app/Toast/Error";
 import { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import demoUserAvatar from "../../../../assets/images/user-demo-avatar.svg";
+import { setProfilePhoto } from "../../../../api/profile.apis";
 
 function EditAvatar() {
-  const navigate = useNavigate();
   const [profileImage, setProfileImage] = useState();
   const EthUser = useSelector((state) => state.EthAccountStates);
 
-
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await setProfilePhoto(profileImage, EthUser.account);
+      if (result.success) {
+        SuccessToast(result.message);
+        window.location = "/myProfile/setting";
+      }
+    } catch (error) {
+      console.log("error in edit avatar", error)
+      return
+    }
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files ? e.target.files[0] : e.dataTransfer.files[0];
@@ -73,7 +85,7 @@ function EditAvatar() {
         </span>
         <div className="h-[1px] w-[15pc] bg-darkBlue-300" />
         <form
-        
+          onSubmit={HandleSubmit}
           className="flex justify-between items-center sm:flex-row flex-col gap-4"
         >
           <div className="flex gap-4 items-center">
@@ -96,7 +108,7 @@ function EditAvatar() {
                 className="block w-full focus:outline-none focus:ring-pink-500 
                   text-xs sm:text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400  dark:bg-darkBlue-600 dark:border-gray-600/30 dark:placeholder-darkBlue-400"
                 id="multiple_files"
-                type="file"  accept=".svg, .png, .jpg, .jpeg, .gif"
+                type="file" accept=".svg, .png, .jpg, .jpeg, .gif"
                 onChange={handleImageChange}
                 multiple
                 required

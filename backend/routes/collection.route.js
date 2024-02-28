@@ -1,5 +1,5 @@
 const express = require("express");
-const { getCollections,getCollectionsByUser,getFewCollections,createCollection,getCollectionDetailsById} = require("../controllers/collection.controller");
+const { getCollections,getCollectionsByUser,getFewCollections,createCollection,getCollectionDetailsById,getCollectionById,updateCollectionById} = require("../controllers/collection.controller");
 const router = express.Router();
 const{ Upload } =require( "../controllers/multer.controller");
 
@@ -8,5 +8,10 @@ router.post("/getCollectionsByUser", getCollectionsByUser);
 router.post("/getFewCollections", getFewCollections);
 router.post("/addCollection", Upload.any("file"), createCollection);
 router.post("/getCollectionDetailsById", getCollectionDetailsById);
-
+router.post("/getCollectionById", getCollectionById);
+router.post(
+    "/updateCollectionById",
+    Upload.any("file"),
+    updateCollectionById
+  );
 module.exports = router;
