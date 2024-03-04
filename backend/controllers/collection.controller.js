@@ -23,8 +23,8 @@ const getCollections = asyncHandler(async (req, res) => {
   
 const createCollection = async (req, res) => {
   const { EthUser, name, tag } = req.body;
-  console.log("createCollection",req.body)
-  console.log("image files",req.files)
+  // console.log("createCollection",req.body)
+  // console.log("image files",req.files)
 
     const imageLinks = req.files?.map((file) => `/images/${file.filename}`);
   
@@ -70,7 +70,7 @@ const getCollectionsByUser = async (req, res) => {
 
 
 const getFewCollections = async (req, res) => {
-  console.log("getFewCollections" , req.body)
+  // console.log("getFewCollections" , req.body)
 
   try {
     const result = await Collection.find(

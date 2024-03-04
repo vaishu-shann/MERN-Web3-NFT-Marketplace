@@ -69,7 +69,7 @@ function Section_1() {
             className="py-2.5 px-5 flex-1  text-sm font-medium flex items-center gap-4 justify-center text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-purple-600 dark:text-gray-100 border-none dark:hover:text-white bg-gradient-to-tr from-purple-800 to-purple-500 dark:hover:bg-purple-700 text-white/90"
             to="/explore"
           >
-            Shop
+           NFTs
           </Link>
           <Link
             className="py-2.5 px-5 flex-1 justify-center text-sm font-medium flex items-center gap-4 text-gray-900 focus:outline-none rounded-lg hover:bg-gray-100 hover:text-pink-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 bg-darkBlue-400/90 dark:text-gray-100 dark:hover:text-white hover:bg-gradient-to-tr from-pink-800 to-pink-500 dark:hover:bg-pink-700"
